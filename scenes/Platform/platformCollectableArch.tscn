@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://deaykamfqql"]
+
+[ext_resource type="Texture2D" uid="uid://bqvws68epixlt" path="res://scenes/Platform/assets/platform.png" id="1_vp0pu"]
+[ext_resource type="PackedScene" uid="uid://bm3p4ewjqbgaj" path="res://scenes/Collectables/collectable.tscn" id="2_pvj62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok8rl"]
+size = Vector2(374, 42)
+
+[node name="Platform" type="StaticBody2D"]
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vp0pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -21)
+shape = SubResource("RectangleShape2D_ok8rl")
+
+[node name="collectable" parent="." instance=ExtResource("2_pvj62")]
+position = Vector2(2, -175)
+scale = Vector2(0.3, 0.3)
+
+[node name="collectable2" parent="." instance=ExtResource("2_pvj62")]
+position = Vector2(109, -97)
+scale = Vector2(0.3, 0.3)
+
+[node name="collectable3" parent="." instance=ExtResource("2_pvj62")]
+position = Vector2(-98, -97)
+scale = Vector2(0.3, 0.3)
+
+[node name="collectable4" parent="." instance=ExtResource("2_pvj62")]
+position = Vector2(-45, -140)
+scale = Vector2(0.3, 0.3)
+
+[node name="collectable5" parent="." instance=ExtResource("2_pvj62")]
+position = Vector2(53, -140)
+scale = Vector2(0.3, 0.3)

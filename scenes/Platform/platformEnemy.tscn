@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm576okldblcc"]
+
+[ext_resource type="Texture2D" uid="uid://bqvws68epixlt" path="res://scenes/Platform/assets/platform.png" id="1_vp0pu"]
+[ext_resource type="PackedScene" uid="uid://dlqvnmjc8l372" path="res://scenes/Enemies/enemy.tscn" id="2_dggx1"]
+[ext_resource type="Script" path="res://scenes/Platform/scripts/Edge.cs" id="3_w3yx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok8rl"]
+size = Vector2(374, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0k3g"]
+size = Vector2(23, 110)
+
+[node name="Platform" type="StaticBody2D"]
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vp0pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -21)
+shape = SubResource("RectangleShape2D_ok8rl")
+
+[node name="Enemy" parent="." instance=ExtResource("2_dggx1")]
+position = Vector2(133, -93)
+scale = Vector2(0.4, 0.4)
+
+[node name="Edges" type="Area2D" parent="."]
+collision_mask = 4
+script = ExtResource("3_w3yx8")
+
+[node name="LeftEdge" type="CollisionShape2D" parent="Edges"]
+position = Vector2(-177, -98)
+shape = SubResource("RectangleShape2D_o0k3g")
+
+[node name="RightEdge" type="CollisionShape2D" parent="Edges"]
+position = Vector2(175, -98)
+shape = SubResource("RectangleShape2D_o0k3g")
