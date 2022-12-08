@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://75mfjrj2sa08"]
+
+[ext_resource type="Script" path="res://scenes/World/scripts/Client.cs" id="1_4mbul"]
+[ext_resource type="Texture2D" uid="uid://co84a1vyq6xfl" path="res://scenes/World/assets/Background/background_static.png" id="1_bp2o2"]
+
+[node name="Client" type="Node2D"]
+script = ExtResource("1_4mbul")
+
+[node name="BackgroundStatic" type="Sprite2D" parent="."]
+position = Vector2(800, 451)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_bp2o2")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1580.0
+offset_bottom = 880.0
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 1560.0
+offset_bottom = 356.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 128
+text = "Raptor Run
+Network Game"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 360.0
+offset_right = 1560.0
+offset_bottom = 860.0
+size_flags_vertical = 3
+theme_override_constants/margin_top = 100
+
+[node name="NetworkButtons" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+offset_left = 170.0
+offset_top = 240.0
+offset_right = 1390.0
+offset_bottom = 360.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ServerAddress" type="TextEdit" parent="UI/MarginContainer/VBoxContainer/MarginContainer/NetworkButtons"]
+custom_minimum_size = Vector2(800, 64)
+layout_mode = 2
+offset_top = 28.0
+offset_right = 800.0
+offset_bottom = 92.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 36
+placeholder_text = "Enter IP Address (IE 127.0.0.1)"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="JoinButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/NetworkButtons"]
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+offset_left = 820.0
+offset_right = 1220.0
+offset_bottom = 120.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "Join Server"

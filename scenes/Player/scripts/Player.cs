@@ -6,6 +6,8 @@ public partial class Player : CharacterBody2D
 	[Export] int gravity = 1600;
 	[Export] int jumpHeight = 600;
 	
+	public long Id { get; private set; }
+	
 	[Signal] public delegate void PlayerDiedEventHandler();
 	[Signal] public delegate void AmmoChangedEventHandler(int a);	
 	
@@ -30,6 +32,11 @@ public partial class Player : CharacterBody2D
 	CollisionShape2D collisionShape;
 	Node2D projectilePosition;
 	Node2D world;
+	
+	public Player(long id)
+	{
+		Id = id;
+	}
 	
 	// Called when the node enters the scene tree for the first time.
 	//Initialize all nodes in the _Ready function

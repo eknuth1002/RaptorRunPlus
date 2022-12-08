@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsu2mbdbyba7"]
+
+[ext_resource type="Texture2D" uid="uid://co84a1vyq6xfl" path="res://scenes/World/assets/Background/background_static.png" id="1_bp2o2"]
+[ext_resource type="Script" path="res://scenes/World/scripts/Server.cs" id="1_s2mob"]
+
+[node name="Server" type="Node2D"]
+script = ExtResource("1_s2mob")
+
+[node name="BackgroundStatic" type="Sprite2D" parent="."]
+position = Vector2(800, 451)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_bp2o2")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1580.0
+offset_bottom = 880.0
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 1560.0
+offset_bottom = 175.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 128
+text = "Raptor Run Server"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lobby" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 195.0
+offset_right = 1560.0
+offset_bottom = 798.0
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="Players" type="TextEdit" parent="UI/MarginContainer/VBoxContainer/Lobby"]
+layout_mode = 2
+offset_right = 767.0
+offset_bottom = 603.0
+size_flags_horizontal = 3
+theme_override_colors/background_color = Color(0.866667, 0.866667, 0.866667, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.427451, 0.427451, 0.427451, 1)
+placeholder_text = "No Players currently connected to server"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Games" type="TextEdit" parent="UI/MarginContainer/VBoxContainer/Lobby"]
+layout_mode = 2
+offset_left = 792.0
+offset_right = 1560.0
+offset_bottom = 603.0
+size_flags_horizontal = 3
+theme_override_colors/background_color = Color(0.866667, 0.866667, 0.866667, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.435294, 0.435294, 0.435294, 1)
+placeholder_text = "No Games currently running on server"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="ExitServerButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 818.0
+offset_right = 1560.0
+offset_bottom = 860.0
+theme_override_font_sizes/font_size = 24
+text = "Exit Server"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/Player/player.tscn")
+spawn_path = NodePath("..")

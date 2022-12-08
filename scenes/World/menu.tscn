@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://com17vc51rwbi"]
+[gd_scene load_steps=4 format=3 uid="uid://com17vc51rwbi"]
 
 [ext_resource type="Texture2D" uid="uid://co84a1vyq6xfl" path="res://scenes/World/assets/Background/background_static.png" id="1_bp2o2"]
 [ext_resource type="Script" path="res://scenes/World/scripts/Menu.cs" id="2_vpj4j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nqsb3"]
+line_spacing = 25.0
+font_size = 64
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Node2D"]
 
@@ -21,7 +27,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,14 +38,12 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
-layout_mode = 2
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 1580.0
 offset_bottom = 880.0
 
 [node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 1560.0
 offset_bottom = 178.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -50,7 +53,6 @@ text = "Raptor Run"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 182.0
 offset_right = 1560.0
 offset_bottom = 860.0
@@ -58,14 +60,13 @@ size_flags_vertical = 3
 theme_override_constants/margin_top = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
 offset_top = 100.0
 offset_right = 1560.0
 offset_bottom = 678.0
+theme_override_constants/separation = 25
 script = ExtResource("2_vpj4j")
 
 [node name="StartButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_left = 602.0
 offset_right = 958.0
 offset_bottom = 96.0
@@ -74,11 +75,43 @@ theme_override_font_sizes/font_size = 64
 text = "Start Game"
 
 [node name="ExitButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
 offset_left = 719.0
-offset_top = 100.0
+offset_top = 121.0
 offset_right = 841.0
-offset_bottom = 196.0
+offset_bottom = 217.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
 text = "Exit"
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+offset_top = 242.0
+offset_right = 1560.0
+offset_bottom = 355.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 128
+text = "Network games"
+label_settings = SubResource("LabelSettings_nqsb3")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NetworkButtons" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+offset_top = 380.0
+offset_right = 1560.0
+offset_bottom = 476.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ServerButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NetworkButtons"]
+offset_left = 412.0
+offset_right = 786.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 64
+text = "Start Server"
+
+[node name="ClientButton" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NetworkButtons"]
+offset_left = 806.0
+offset_right = 1147.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 64
+text = "Join Server"
